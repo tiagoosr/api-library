@@ -1,4 +1,4 @@
-package com.project.api_library.api_library;
+package com.project.api_library;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

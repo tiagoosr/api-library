@@ -1,0 +1,27 @@
+version: '3.8'
+services:
+  app:
+    build: .
+    ports:
+      - "127.0.0.1:8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+    depends_on:
+      - db
+    restart: always
+    networks: 
+      - api-library-network
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: property_sales
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "127.0.0.1:5434:5434"
+    networks: 
+      - api-library-network
+
+networks:
+  property-sales-network:
+    driver: bridge
